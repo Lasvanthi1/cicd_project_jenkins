@@ -11,7 +11,7 @@ pipeline {
         stage('Build docker image'){
             steps{
                 script{
-                    sh 'docker build -t lasvanthi/cicdjavaproject:v1 .'
+                    sh 'docker build -t lasvanthi/cicdproject:v1 .'
                 }
             }
         }
@@ -19,7 +19,7 @@ pipeline {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'dockerhubcred', passwordVariable: 'PASS', usernameVariable: 'USER')]) {
                     sh "echo $PASS | docker login -u $USER --password-stdin"
-                    sh 'docker push lasvanthi/cicdjavaproject:v1'
+                    sh 'docker push lasvanthi/cicdproject:v1'
                 }
             }
         }

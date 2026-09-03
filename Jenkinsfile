@@ -3,7 +3,7 @@ pipeline {
     stages{
         stage('Build Maven'){
             steps{
-                git credentialsId: 'githubcreds', url: 'https://github.com/Lasvanthi1/cicd_project_jenkins.git'
+                # git credentialsId: 'githubcreds', url: 'https://github.com/Lasvanthi1/cicd_project_jenkins.git'
                sh 'mvn clean install'
                sh 'mvn clean package'
             }
